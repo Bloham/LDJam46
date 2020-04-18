@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    private GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && gameManager.isGameActive == true)
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -29,7 +30,11 @@ public class PlayerInput : MonoBehaviour
     }
     private void PrintName(GameObject go)
     {
-        print(go.name);
+        Debug.Log(go.name);
+        if (go.CompareTag("Plant"))
+        {
+            gameManager.UpdateHeath(1);
+        }
     }
 
 }
