@@ -1144,7 +1144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2983695147858320807}
   - component: {fileID: 4262515988126416317}
-  - component: {fileID: 5418452763410911293}
+  - component: {fileID: 4024768916289299716}
   m_Layer: 0
   m_Name: face 1
   m_TagString: Untagged
@@ -1216,7 +1216,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5418452763410911293
+--- !u!114 &4024768916289299716
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1246,7 +1246,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3308902890963100429}
   - component: {fileID: 9075604356790210598}
-  - component: {fileID: 7842402232856680278}
+  - component: {fileID: 3877455309256560298}
   m_Layer: 0
   m_Name: water
   m_TagString: Untagged
@@ -1318,7 +1318,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7842402232856680278
+--- !u!114 &3877455309256560298
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

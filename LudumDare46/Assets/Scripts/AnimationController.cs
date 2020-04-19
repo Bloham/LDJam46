@@ -43,14 +43,14 @@ public class AnimationController : MonoBehaviour
     {
         playerAnim.SetBool("Normal", false);
         playerAnim.SetBool("Sun", true);
-        Debug.Log("Animation Get Wet");
+        //Debug.Log("Animation Get Wet");
     }
 
     private void GetSun()
     {
         playerAnim.SetBool("Normal", false);
         playerAnim.SetBool("Water", true);
-        Debug.Log("Animation Get Sun");
+        //Debug.Log("Animation Get Sun");
     }
 
     private void Normal()
@@ -59,7 +59,7 @@ public class AnimationController : MonoBehaviour
         playerAnim.SetBool("Sun", false);
         playerAnim.SetBool("Water", false);
         playerAnim.SetBool("Normal", true);
-        Debug.Log("Animation Normal");
+        //Debug.Log("Animation Normal");
     }
 
     private void Dead()

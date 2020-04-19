@@ -9,6 +9,11 @@ public class Soil : MonoBehaviour
     private GameManager gameManager;
     public Material[] material;
     Renderer rend;
+    private Material current;
+
+    public float transitionTime = 0.5f;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,19 +28,19 @@ public class Soil : MonoBehaviour
     {
         if (gameManager.plantIsNormal)
         {
-            rend.sharedMaterial = material[0];
+            rend.sharedMaterial.Lerp(rend.sharedMaterial, material[0], transitionTime);
         }
         if (gameManager.plantIsDry)
         {
-            rend.sharedMaterial = material[1];
+            rend.sharedMaterial.Lerp(rend.sharedMaterial, material[1], transitionTime);
         }
         if (gameManager.plantIsWet)
         {
-            rend.sharedMaterial = material[2];
+            rend.sharedMaterial.Lerp(rend.sharedMaterial, material[2], transitionTime);
         }
         if (gameManager.plantIsDead)
         {
-            rend.sharedMaterial = material[3];
+            rend.sharedMaterial.Lerp(rend.sharedMaterial, material[3], transitionTime);
         }
     }
 }

@@ -10,7 +10,7 @@ public class LookAtCamera : MonoBehaviour
         target = GameObject.Find("Camera").GetComponent<Transform>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         transform.LookAt(target, Vector3.up);
     }
