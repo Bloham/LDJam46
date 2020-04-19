@@ -6,11 +6,11 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    public TextMeshProUGUI healthText;
     public TextMeshProUGUI gameOverText;
     public GameObject mainMenue;
     public GameObject gameMenue;
     public GameObject gameOverMenue;
+    
 
     public int health;
     public bool isGameActive;
@@ -30,12 +30,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (health == maxHealth)
+        if (health == maxHealth && plantIsDead == false)
         {
             GameOver();
             gameOverText.text = ("Your plant got too much sunlight and dried out. I hope it will rain more next time.");
         }
-        if (health == -maxHealth)
+        if (health == -maxHealth && plantIsDead == false)
         {
             GameOver();
             gameOverText.text = ("Your plant got too much water and drowned. I hope it will have more sunshine next time.");
@@ -50,23 +50,29 @@ public class GameManager : MonoBehaviour
     public void UpdateHeath(int heathToAdd)
     {
        health += heathToAdd;
-       healthText.text = ("" + health);
-       if (health >= -maxHealth/2 && health <= maxHealth/2)
+       if (health >= -maxHealth/4 && health <= maxHealth/4 && plantIsNormal == false)
         {
-            Debug.Log("Plant is Normal: " + plantIsNormal);
-            plantIsNormal = true;
+            //Debug.Log("Plant is Normal: " + plantIsNormal);
             plantIsWet = false;
             plantIsDry = false;
+            plantIsNormal = true;
+            
         }
-        if (health >= -maxHealth && health <= -maxHealth / 2)
+        if (health >= -maxHealth && health <= -maxHealth / 4 && plantIsWet == false)
         {
-            Debug.Log("Plant is Wet: " + plantIsWet);
+            plantIsNormal = false;
             plantIsWet = true;
+            Debug.Log("Plant is Wet: " + plantIsWet);
+           
+            
         }
-        if (health >= maxHealth/2 && health <= maxHealth)
+        if (health >= maxHealth/4 && health <= maxHealth && plantIsDry == false)
         {
-            Debug.Log("Plant is Dry: " + plantIsDry);
+            plantIsNormal = false;
             plantIsDry = true;
+            Debug.Log("Plant is Dry: " + plantIsDry);
+            
+            
         }
     }
 
@@ -90,7 +96,6 @@ public class GameManager : MonoBehaviour
     private void GameOver()
     {
         isGameActive = false;
-        healthText.text = ("0");
 
         gameOverMenue.gameObject.SetActive(true);
         gameMenue.gameObject.SetActive(false);
